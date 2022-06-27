@@ -1,47 +1,49 @@
-# README
+# カスタムバリデーションを実装する
+カスタムバリデーションをかける手順をまとめた。
 
-## 手順
+## 参考資料
+以下の参考資料をベースに作成
+- [EachValidator クラスのカスタムバリデーション設定(Rails6/lib 以下読込)](https://blog.cloud-acct.com/posts/u-rails-custom-eachvalidator/)
 
+
+
+## 事前準備
+
+### 1.アプリ作成
 ```shell
-# アプリ作成
 rails new . -d postgresql
+```
 
-# テーブルを作成
+### 2.テーブルを作成
+```
 rails g model User name:string position: integer
 rails g model Group name:string
 rails g model GroupUsers user:references group:references
-# 制限をかける
+```
 
-# テストデータを導入
-# user
-user の position が manager
-user の position が staffe
+### 3.テストデータを導入
+```rb
 
-# group
-適当に5つ
-
-# groupusers
-user の position が manager に 5つ付与
-user の position が staff に 5つ付与
-
-# これで、ひとまずseedが通る
+# seedをここに記載
 
 ```
 
-- enum or 文字列で position を保存
+現在は、以下のようなデータが保存される
+```
+ここに記載
+```
 
-- 制限をかけていない場合、保存される
-  user の position が manager
-  user の position が staffe
 
-## 課題
 
-- users の position が staff の時、 group_user に 1 つしか保存できない
-- カスタムバリデーションをかけること
+
+## カスタムバリデーションを用いて、達成したい課題
+
+- users の position が staff の時、 group_user に 1 つしか保存できないようにする制限をかける
+
 
 ## カスタムバリデーションを作成する
 
-### カスタムバリデーションのディレクトリを作成
+### 1.カスタムバリデーションのディレクトリを作成
 
 ```shell
 mkdir lib/validator && touch $_/group_user_validator.rb
@@ -119,6 +121,3 @@ user_id
 
 # 最後に rubocop を入れておくこと
 
-## 参考資料
-
-- [EachValidator クラスのカスタムバリデーション設定(Rails6/lib 以下読込)](https://blog.cloud-acct.com/posts/u-rails-custom-eachvalidator/)
