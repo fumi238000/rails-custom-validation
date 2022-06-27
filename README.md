@@ -171,6 +171,8 @@ end
 ```
 
 ```rb
+# group.rb
+
 class Group < ApplicationRecord
   has_many :group_users, dependent: :destroy
   has_many :users, through: :group_users
@@ -210,6 +212,7 @@ Group.all.each do |group|
   GroupUser.find_or_create_by!(group_id: group.id, user_id: manager_user.id)
 
   # スタッフ
+  # カスタムバリデーション実装後、保存できなくなるので、削除すること
   staff_user = User.find_by(name: "スタッフユーザー")
   GroupUser.find_or_create_by!(group_id: group.id, user_id: staff_user.id)
 end
@@ -220,6 +223,8 @@ end
 ### 5.動作確認
 - 以下で取得できればOK
 ```shell
+ > rails c
+
  User.first.groups
  Group.first.users
  User.staff
