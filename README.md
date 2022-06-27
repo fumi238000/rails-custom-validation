@@ -122,3 +122,6 @@ user_id
 ## 参考資料
 
 - [EachValidator クラスのカスタムバリデーション設定(Rails6/lib 以下読込)](https://blog.cloud-acct.com/posts/u-rails-custom-eachvalidator/)
+
+- https://qiita.com/yujiG/items/3e34e2e0e7b4120b0584
+- https://morizyun.github.io/ruby/active-record-validation.html#%E3%82%AA%E3%83%AA%E3%82%B8%E3%83%8A%E3%83%AB%E3%81%AE%E3%83%90%E3%83%AA%E3%83%87%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%AF%E3%83%A9%E3%82%B9%EF%BC%9Avalidates-with
