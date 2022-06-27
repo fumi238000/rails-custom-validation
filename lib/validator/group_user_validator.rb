@@ -3,11 +3,12 @@ class GroupUserValidator < ActiveModel::EachValidator
       # カスタムバリデーションを記述
       binding.pry
       # 0がスタッフかどうかわからんけど・・・。0と仮定して 
-      value.position == 0 
+      # value.position == 0 
       # 関連付けをつけておく
       # 以下はどレでも良いと思う。
 
-      if value.user_group.precent? && value.user_group.count < 1
+      
+      if value.position == 0 ? && value.user_group.precent? && value.user_group.count < 1
         binding.pry
         # ここを明日記述すること
         # too_longを修正予定
