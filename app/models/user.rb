@@ -5,6 +5,6 @@ class User < ApplicationRecord
   # enum
   enum position: {
     manager: 0,
-    staff: 1,
+    staff: 1
   }
 end
