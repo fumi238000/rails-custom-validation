@@ -1,24 +1,66 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 手順
 
-Things you may want to cover:
+```shell
+# アプリ作成
+rails new . -d postgresql
 
-* Ruby version
+# テーブルを作成
+rails g model User name:string position: integer
+rails g model Group name:string
+rails g model GroupUsers user:references group:references
+# 制限をかける
 
-* System dependencies
+# テストデータを導入
+# user
+user の position が manager
+user の position が staffe
 
-* Configuration
+# group
+適当に5つ
 
-* Database creation
+# groupusers
+user の position が manager に 5つ付与
+user の position が staff に 5つ付与
 
-* Database initialization
+# これで、ひとまずseedが通る
 
-* How to run the test suite
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+- enum or 文字列で position を保存
 
-* Deployment instructions
+- 制限をかけていない場合、保存される
+  user の position が manager
+  user の position が staffe
 
-* ...
+## 課題
+
+- users の position が staff の時、 group_user に 1 つしか保存できない
+- カスタムバリデーションをかけること
+
+## テーブル設計
+
+```shell
+これ、何かでテーブル設計できたはず
+
+groups
+id
+name
+
+users
+id
+name
+position
+
+group_users
+id
+group_id
+user_id
+
+```
+
+## 要件
+
+- ユーザーのタイプが admin だった場合、複数登録ができる
+- ユーザーのタイプが user だった場合、1 つしか登録できない
