@@ -30,3 +30,7 @@ Group.all.each do |group|
   staff_user = User.find_by(name: "スタッフユーザー")
   GroupUser.find_or_create_by!(group_id: group.id, user_id: staff_user.id)
 end
+
+# # スタッフ
+# staff_user = User.find_by(name: "スタッフユーザー")
+# GroupUser.create(group_id: Group.first.id, user_id: staff_user.id)
