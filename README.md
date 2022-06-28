@@ -231,6 +231,12 @@ end
  User.manager
 ```
 
+### 6.Gem
+bundle install
+```rb
+gem "pry-byebug"
+```
+
 
 ## 参考資料
 
